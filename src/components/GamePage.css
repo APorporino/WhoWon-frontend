@@ -1,0 +1,30 @@
+html {
+    zoom: 150%;
+}
+
+.border {
+    margin: auto;
+    border: 1px solid black;
+}
+
+.black-text {
+    color: black;
+}
+
+.general-font {
+    font-family: 'Oswald', sans-serif;
+}
+
+.score-font {
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.team-font {
+    font-family: 'Suez One', serif;
+}
+
+.error-text {
+    color: red;
+    font-family: 'Oswald', sans-serif;
+}
