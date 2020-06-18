@@ -9,7 +9,7 @@ const HomePage = () => {
             <div className="ui sixteen wide column instructions">
 
                 <p>Given two finalist from any year can you guess who won the championship?</p>
-                <p>Sports included: Hockey, Baseball, Basketball, Football</p>
+                <p>Sports included: Hockey (NHL), Baseball (MLB), Basketball (NBA), Football(NFL/CFL), Golf (Majors), Soccer (World and Euro Cup)</p>
             </div>
 
             <div className="ui four wide column">

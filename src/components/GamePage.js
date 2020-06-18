@@ -78,14 +78,14 @@ class GamePage extends React.Component {
                         <div className="five wide column aligned">
                             <div className="ui checkbox">
                                 <input type="checkbox" name="hockey" id="hoceky" onChange={event => this.setState({hockey: event.target.checked})}/>
-                                <label>Hockey </label>
+                                <label>Hockey (NHL) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
                             <div className="ui checkbox">
                                 <input type="checkbox" name="baseball" id="baseball" onChange={event => this.setState({baseball: event.target.checked})}/>
-                                <label>Baseball </label>
+                                <label>Baseball (MLB) </label>
                             </div>
                         </div>
 
@@ -100,21 +100,21 @@ class GamePage extends React.Component {
                         <div className="five wide column aligned">
                             <div className="ui checkbox">
                                 <input type="checkbox" name="basketball" id="basketball" onChange={event => this.setState({basketball: event.target.checked})}/>
-                                <label>Basketball </label>
+                                <label>Basketball (NBA) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
                             <div className="ui checkbox">
                                 <input type="checkbox" name="football" id="football" onChange={event => this.setState({football: event.target.checked})}/>
-                                <label>Football </label>
+                                <label>Football (NFL/CFL) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
                             <div className="ui checkbox">
                                 <input type="checkbox" name="golf" id="golf" onChange={event => this.setState({golf: event.target.checked})}/>
-                                <label>Golf Majors </label>
+                                <label>Golf (Majors) </label>
                             </div>
                         </div>
                         
@@ -140,16 +140,16 @@ class GamePage extends React.Component {
         <div>
             <div className="ui six column centered grid">
                 <div className="five wide column aligned">
-                      <div className="ui button blue" onClick={this.nextSeries}>
-                          <div className=" black-text">Next</div>
+                      <div className="ui button gray" onClick={this.reset}>
+                          <div className=" black-text">Restart</div>
                       </div>
                   </div>
                 <div className="six wide column aligned">
                     <div className="score-font black-text">Score: {this.state.score}</div>
                 </div>
                 <div className="five wide column aligned">
-                      <div className="ui button gray" onClick={this.reset}>
-                          <div className=" black-text">Restart</div>
+                      <div className="ui button blue" onClick={this.nextSeries}>
+                          <div className=" black-text">Next</div>
                       </div>
                   </div>
                   <div className="sixteen wide column aligned">
@@ -183,16 +183,16 @@ class GamePage extends React.Component {
             <div>
                 <div className="ui six column centered grid">
                     <div className="five wide column aligned">
-                          <div className="ui button blue" onClick={this.nextSeries}>
-                              <div className=" black-text">Next</div>
+                          <div className="ui button gray" onClick={this.reset}>
+                              <div className=" black-text">Restart</div>
                           </div>
                       </div>
                     <div className="six wide column aligned">
                         <div className="score-font black-text">Score: {this.state.score}</div>
                     </div>
                     <div className="five wide column aligned">
-                          <div className="ui button gray" onClick={this.reset}>
-                              <div className=" black-text">Restart</div>
+                          <div className="ui button blue" onClick={this.nextSeries}>
+                              <div className=" black-text">Next</div>
                           </div>
                       </div>
                       <div className="sixteen wide column aligned">
