@@ -1,3 +1,7 @@
+@media (min-device-width:300px) and (max-device-width:700px) {
+  
+}
+
 html {
     overflow: hidden;
     zoom: 150%;
@@ -28,4 +32,14 @@ html {
 .error-text {
     color: red;
     font-family: 'Oswald', sans-serif;
+}
+
+.checkboxesLeft {
+    margin: 0px 0px 0px 30px;
+}
+.checkboxesRight {
+    margin: 0px 30px 0px 0px;
+}
+.checkboxesMiddle {
+    margin: 10px;
 }

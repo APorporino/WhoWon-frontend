@@ -13,6 +13,7 @@ class GamePage extends React.Component {
         sportName: "",
         correct: null,
         score: 0,
+        questions: 0,
         hockey: null,
         baseball: null,
         basketball: null,
@@ -23,6 +24,7 @@ class GamePage extends React.Component {
     }
     async getSeries(){
         try {
+            this.setState({error: "Loading"})
             const response = await axios.get('https://who-won-backend.herokuapp.com/getSeries',{
                 params: {
                     baseball: this.state.baseball,
@@ -39,6 +41,7 @@ class GamePage extends React.Component {
             }else{
                 this.setState({Finalist1: response.data.Finalist, Finalist2: response.data.Champion, Year: response.data.Year, Champion: response.data.Champion, sportName: response.data.sportName})
             }
+            this.setState({error: ""})
         } catch (error) {
             this.setState({error: "Must select at least one sport"})
             console.error(error);
@@ -46,7 +49,23 @@ class GamePage extends React.Component {
     }
 
     reset = ()=>{
-      this.setState({Finalist1: "", Finalist2: "", Year: null, Champion: "", correct: null, score: 0})
+      this.setState({
+        Finalist1: "",
+        Finalist2: "",
+        Year: null,
+        Champion: "",
+        sportName: "",
+        correct: null,
+        score: 0,
+        questions: 0,
+        hockey: null,
+        baseball: null,
+        basketball: null,
+        football: null,
+        soccer: null,
+        golf: null,
+        error: ""
+        })
     }
 
     nextSeries = ()=>{
@@ -58,10 +77,10 @@ class GamePage extends React.Component {
 
         if (finalist === this.state.Champion){
             this.setState({correct: true})
-            this.setState({score: this.state.score + 1})
+            this.setState({score: this.state.score + 1, questions: this.state.questions + 1})
         }else {
             this.setState({correct: false})
-            this.setState({score: 0})
+            this.setState({questions: this.state.questions + 1})
         }
     }
 
@@ -74,45 +93,45 @@ class GamePage extends React.Component {
         return (
             <div>
               <br></br><br></br><br></br><br></br>
-                <div className=" ui sixteen column centered grid">
-                        <div className="five wide column aligned">
-                            <div className="ui checkbox">
+                <div className=" ui sixteen column centered grid ">
+                        <div className="five wide column aligned ">
+                            <div className="ui checkbox  checkboxesLeft ">
                                 <input type="checkbox" name="hockey" id="hoceky" onChange={event => this.setState({hockey: event.target.checked})}/>
                                 <label>Hockey (NHL) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
-                            <div className="ui checkbox">
+                            <div className="ui checkbox  checkboxesMiddle ">
                                 <input type="checkbox" name="baseball" id="baseball" onChange={event => this.setState({baseball: event.target.checked})}/>
                                 <label>Baseball (MLB) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
-                            <div className="ui checkbox ">
+                            <div className="ui checkbox checkboxesRight ">
                                 <input type="checkbox" name="soccer" id="soccer" onChange={event => this.setState({soccer: event.target.checked})}/>
                                 <label>Soccer (Euro and World Cup)</label>
                             </div>
                         </div>
                 </div>
-                <div className=" ui three column centered grid">
+                <div className=" ui three column centered grid ">
                         <div className="five wide column aligned">
-                            <div className="ui checkbox">
+                            <div className="ui checkbox checkboxesLeft ">
                                 <input type="checkbox" name="basketball" id="basketball" onChange={event => this.setState({basketball: event.target.checked})}/>
                                 <label>Basketball (NBA) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
-                            <div className="ui checkbox">
+                            <div className="ui checkbox  checkboxesMiddle ">
                                 <input type="checkbox" name="football" id="football" onChange={event => this.setState({football: event.target.checked})}/>
                                 <label>Football (NFL/CFL) </label>
                             </div>
                         </div>
 
                         <div className="five wide column aligned">
-                            <div className="ui checkbox">
+                            <div className="ui checkbox checkboxesRight ">
                                 <input type="checkbox" name="golf" id="golf" onChange={event => this.setState({golf: event.target.checked})}/>
                                 <label>Golf (Majors) </label>
                             </div>
@@ -125,6 +144,7 @@ class GamePage extends React.Component {
                         &nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
 
+
                 <div className=" ui sixteen column centered grid">
                     <div className="ui button blue" onClick={()=> this.nextSeries()}>
                         <div className=" black-text">Start</div>
@@ -134,6 +154,8 @@ class GamePage extends React.Component {
             </div>
         )
     }
+
+  
 
     renderSuccess(){
       return (
@@ -145,7 +167,7 @@ class GamePage extends React.Component {
                       </div>
                   </div>
                 <div className="six wide column aligned">
-                    <div className="score-font black-text">Score: {this.state.score}</div>
+                    <div className="score-font black-text">Score: {this.state.score} / {this.state.questions}</div>
                 </div>
                 <div className="five wide column aligned">
                       <div className="ui button blue" onClick={this.nextSeries}>
@@ -188,7 +210,7 @@ class GamePage extends React.Component {
                           </div>
                       </div>
                     <div className="six wide column aligned">
-                        <div className="score-font black-text">Score: {this.state.score}</div>
+                        <div className="score-font black-text">Score: {this.state.score} / {this.state.questions}</div>
                     </div>
                     <div className="five wide column aligned">
                           <div className="ui button blue" onClick={this.nextSeries}>
@@ -226,7 +248,7 @@ class GamePage extends React.Component {
             <div>
                 <div className="ui six column centered grid">
                     <div className="sixteen wide column aligned">
-                        <div className="score-font black-text">Score: {this.state.score}</div>
+                        <div className="score-font black-text">Score: {this.state.score} / {this.state.questions}</div>
                     </div>
                     
                 </div>
